@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -46,22 +46,49 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: white;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Remove default focus outline */
+input:focus {
+  outline: none;
+}
+
+/* Customize focus styling */
+input:focus {
+  border-color: white; /* Change to your desired color */
+  box-shadow: 0 0 0 1px white; /* Add a box shadow for better visibility */
+}
+
+.specific-input:focus {
+  outline: none; /* Removes any outline */
+  box-shadow: none;
+  border-color: none; /* Removes any shadow */
+  /* Reset other styles as needed */
+}
+
+/* @media (prefers-color-scheme: light) { */
+:root {
+  color: #213547;
+  background-color: "#192633";
+}
+a:hover {
+  color: #747bff;
+}
+button {
+  background-color: #f9f9f9;
+}
+
+#error-message {
+  position: fixed;
+  bottom: -100px; /* Initially off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above other content */
+  transition: bottom 0.5s ease; /* Transition effect */
+  bottom: 0px;
+}
+
+.close-button {
+  cursor: pointer;
 }

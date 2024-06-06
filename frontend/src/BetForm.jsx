@@ -20,7 +20,11 @@ const BetForm = ({
     const userMultiplier = parseFloat(formData.get("userMultiplier"));
 
     // Validate betSizing
-    if (betSizing < 0.01 || betSizing > parseFloat(balance)) {
+    if (
+      isNaN(betSizing) ||
+      betSizing < 0.01 ||
+      betSizing > parseFloat(balance)
+    ) {
       setErrors({
         ...errors,
         betSizing: "Bet amount must be greater than 0 and less than balance.",
@@ -32,7 +36,7 @@ const BetForm = ({
     }
 
     // Validate userMultiplier
-    if (userMultiplier < 1.01) {
+    if (isNaN(userMultiplier) || userMultiplier < 1.01) {
       setErrors({
         ...errors,
         userMultiplier: "Target multiplier must be greater than 1.",

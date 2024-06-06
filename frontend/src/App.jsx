@@ -11,7 +11,7 @@ import { CircleDollarSignIcon } from "lucide-react";
 import { Sidebar, SidebarItem } from "./SideBar";
 import WelcomeModal from "./WelcomeModal";
 import BetForm from "./BetForm";
-
+import { SiGithub } from "react-icons/si";
 function App() {
   const [balance, setBalance] = useState(-1);
   const [inputBalance, setInputBalance] = useState(0.0);
@@ -44,9 +44,6 @@ function App() {
     }
   }, [stakeMultiplier, balance]);
 
-  // useEffect(() => {
-  //   playSound("load-in", soundFx);
-  // }, []);
   const playSound = (sound, soundFx) => {
     if (!soundFx) {
       return;
@@ -68,9 +65,6 @@ function App() {
     audio.play();
   };
 
-  // dynamically import and initialize countUp, sets value of `countUpAnim`
-  // you don't have to import this way, but this works best for next.js
-
   return (
     <>
       {isModalOpen && (
@@ -87,6 +81,10 @@ function App() {
             icon={<CircleDollarSignIcon size={20} style={{ color: "white" }} />}
             text="Limbo"
           />
+          {/* <SidebarItem
+            icon={<SiGithub size={20} style={{ color: "white" }} />}
+            text="My Github"
+          /> */}
         </Sidebar>
         <div className="flex-1 bodyColor flex flex-col">
           <Header

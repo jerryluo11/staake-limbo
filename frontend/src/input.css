@@ -60,6 +60,10 @@ input:focus {
   box-shadow: 0 0 0 1px white; /* Add a box shadow for better visibility */
 }
 
+.user-input {
+  box-shadow: 0 0 0 1px gray; /* Add a box shadow for better visibility */
+}
+
 .specific-input:focus {
   outline: none; /* Removes any outline */
   box-shadow: none;

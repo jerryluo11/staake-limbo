@@ -48,7 +48,7 @@ const WelcomeModal = ({
         </p>
         <form
           onSubmit={assignBalance}
-          className="flex justify-center items-center mt-6"
+          className="flex justify-center items-center mt-8"
           noValidate
         >
           <div className="flex-col flex items-center w-1/2">

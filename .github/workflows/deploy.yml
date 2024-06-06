@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: "/home/runner/work/staake-limbo/package-lock.json"
+        working-directory: "/home/runner/work/staake-limbo/frontend/package-lock.json"
 
       - name: Build project
         run: npm run build

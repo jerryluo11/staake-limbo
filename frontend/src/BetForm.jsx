@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const BetForm = ({
+  numbers,
+  setNumbers,
   setHaveBet,
   balance,
   setBalance,
@@ -60,27 +62,34 @@ const BetForm = ({
     } else {
       setShowUserMultiplier(false);
     }
+
     setHaveBet(true);
     setBetSizing(betSizing);
     setUserMultiplier(userMultiplier);
 
     let tempBalance = parseFloat(balance);
-    console.log("tempBalance", tempBalance);
+
     let payout = -betSizing;
-    console.log("pre-payout", payout);
+
     let stake_multiplier = 1.0;
     let casino_odds = Math.floor(Math.random() * 100) + 1;
     if (casino_odds != 1) {
       let u = Math.random();
       stake_multiplier = 1 / (1 - u);
     }
-    console.log(stake_multiplier);
     if (userMultiplier <= stake_multiplier) {
       payout += betSizing * userMultiplier;
     }
-    console.log("post-payout", payout);
+
     tempBalance += payout;
-    console.log("final-balance", tempBalance.toFixed(2));
+
+    setNumbers((prevNumbers) => {
+      const updatedNumbers = [...prevNumbers, stake_multiplier.toFixed(2)];
+      if (updatedNumbers.length > 4) {
+        updatedNumbers.shift(); // Remove the first element if there are more than 5 numbers
+      }
+      return updatedNumbers;
+    });
     setBalance(tempBalance.toFixed(2));
     setStakeMultiplier(stake_multiplier.toFixed(2));
   };
@@ -218,7 +227,7 @@ const BetForm = ({
           <div className="bg-gray-600 rounded-lg text-white user-input font-bold h-10 w-48 flex items-center justify-between px-2">
             <span>
               {displayUserMultiplier != -1 &&
-              displayUserMultiplier != 1 &&
+              displayUserMultiplier >= 1 &&
               displayUserMultiplier != ""
                 ? ((displayUserMultiplier - 1) * displayBetSizing).toFixed(2)
                 : ""}
@@ -231,7 +240,7 @@ const BetForm = ({
           <div className="bg-gray-600 rounded-lg text-white user-input font-bold h-10 w-48 flex items-center justify-between px-2">
             <span>
               {displayUserMultiplier != -1 &&
-              displayUserMultiplier != 1 &&
+              displayUserMultiplier >= 1 &&
               displayUserMultiplier != ""
                 ? (100 * (0.99 / displayUserMultiplier)).toFixed(6)
                 : ""}

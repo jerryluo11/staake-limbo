@@ -12,7 +12,7 @@ input::-webkit-inner-spin-button {
 
 .modal {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -38,6 +38,10 @@ input::-webkit-inner-spin-button {
 
 .stakeWin {
   color: #00ff00;
+}
+
+.stakeWinBackground {
+  background-color: #00ff00;
 }
 
 .stakeLoss {

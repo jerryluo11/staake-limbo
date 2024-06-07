@@ -1,0 +1,42 @@
+/* .number-item {
+  animation: fadeInOut 0.5s ease-in-out;
+}
+.number-item:nth-child(1) {
+  animation: test 0.5s ease-in-out;
+} */
+
+/* Animation for fading in and out */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(20px); /* Adjusted for fading in from the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px); /* Adjusted for fading out to the left */
+  }
+}
+
+@keyframes test {
+  0% {
+    opacity: 1;
+    transform: translateY(20px); /* Adjusted for fading in from the right */
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(0px); /* Adjusted for fading out to the left */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-20px); /* Adjusted for fading out to the left */
+  }
+}
+
+/* .past-bets .number-item:nth-child(n + 2):nth-child(-n + 3) {
+  animation: fadeIn 0.5s ease-in-out forwards;
+} */
+
+/* Apply animation to the oldest item being removed */
+/* .past-bets .number-item:nth-child(5) {
+  animation: fadeOut 0.5s ease-in-out forwards;
+} */

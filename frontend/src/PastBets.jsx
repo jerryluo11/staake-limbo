@@ -7,6 +7,7 @@ const PastBets = ({ numbers = [], userMultiplier }) => {
     setRenderedNumbers(numbers);
   }, [numbers]);
   console.log(numbers);
+  console.log(renderedNumbers);
   return (
     <>
       <div
@@ -20,12 +21,19 @@ const PastBets = ({ numbers = [], userMultiplier }) => {
         }}
       >
         {renderedNumbers.map((number, index) => {
+          let modifiers = "number-item"; // Not used, could be used in className conditionally
+          console.log("number", number);
+          console.log("index", index);
+          console.log("number length", numbers.length);
+          if (numbers.length == 5 && index == 4) {
+            modifiers = "number-item fadeOut";
+          }
           return (
             <PastBetsItem
-              key={index}
+              key={index} // Ensure key is unique and stable
               stakeMultiplier={number}
               userMultiplier={userMultiplier}
-              className="number-item"
+              className={modifiers} // 'modifiers' variable usage
             />
           );
         })}

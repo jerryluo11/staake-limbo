@@ -85,7 +85,7 @@ const BetForm = ({
 
     setNumbers((prevNumbers) => {
       const updatedNumbers = [...prevNumbers, stake_multiplier.toFixed(2)];
-      if (updatedNumbers.length > 4) {
+      if (updatedNumbers.length > 5) {
         updatedNumbers.shift(); // Remove the first element if there are more than 5 numbers
       }
       return updatedNumbers;

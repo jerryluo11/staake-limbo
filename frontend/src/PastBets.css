@@ -1,9 +1,10 @@
 /* .number-item {
   animation: fadeInOut 0.5s ease-in-out;
-}
-.number-item:nth-child(1) {
-  animation: test 0.5s ease-in-out;
 } */
+.fadeOut {
+  animation: fadeInOut 0.5s ease-in-out;
+  background-color: aqua;
+}
 
 /* Animation for fading in and out */
 @keyframes fadeInOut {
@@ -12,7 +13,7 @@
     transform: translateX(20px); /* Adjusted for fading in from the right */
   }
   100% {
-    opacity: 1;
+    opacity: 0;
     transform: translateX(0px); /* Adjusted for fading out to the left */
   }
 }
